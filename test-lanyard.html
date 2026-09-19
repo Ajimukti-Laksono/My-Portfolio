@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lanyard 3D Test</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #020617; font-family: Inter, sans-serif; }
+    #lanyard-root { width: 100vw; height: 100vh; }
+    .loading {
+      position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+      color: #818cf8; font-size: 14px; font-weight: 600; letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div id="lanyard-root"></div>
+  <script type="module">
+    import React from '/node_modules/.vite/deps/react.js?v=8fd67a66'
+    import ReactDOM from '/node_modules/.vite/deps/react-dom_client.js?v=8fd67a66'
+  </script>
+  <script type="module" src="/src/test-lanyard.jsx"></script>
+</body>
+</html>
