@@ -1,11 +1,14 @@
 import React from 'react';
 import { MapPin, Mail, Calendar, Code, Database, Palette, Server, Briefcase } from 'lucide-react';
 import profilePhoto from '../assets/foto_profile.jpeg';
+import { projectsData } from '../data/projects';
+import { experienceData } from '../data/experience';
 
 export default function CleanAbout({ t, isDarkMode, currentColors, professionalData }) {
   // Simple, solid colors for a clean layout
   const cardBg = isDarkMode ? "rgba(255, 255, 255, 0.03)" : "#FFFFFF";
   const borderColor = isDarkMode ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)";
+  const completedProjectsCount = projectsData.filter(p => !p.comingSoon).length;
 
   return (
     <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-10 items-start">
@@ -103,7 +106,7 @@ export default function CleanAbout({ t, isDarkMode, currentColors, professionalD
         <div className="pt-8 border-t flex flex-wrap gap-10" style={{ borderColor }}>
            <div>
               <p className="text-4xl font-black mb-1" style={{ color: currentColors.text.primary }}>
-                {professionalData.yearsOfExperience}
+                {experienceData.length}
               </p>
               <p className="text-xs font-bold uppercase tracking-widest" style={{ color: currentColors.text.secondary }}>
                 {t('hero.stats.years')}
@@ -111,7 +114,7 @@ export default function CleanAbout({ t, isDarkMode, currentColors, professionalD
            </div>
            <div>
               <p className="text-4xl font-black mb-1" style={{ color: currentColors.text.primary }}>
-                10+
+                {completedProjectsCount}
               </p>
               <p className="text-xs font-bold uppercase tracking-widest" style={{ color: currentColors.text.secondary }}>
                 {t('hero.stats.projects')}

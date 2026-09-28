@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://aji-mukti.github.io/my-portfolio-react",
+  "homepage": "https://Ajimukti-Laksono.github.io/My-Portfolio/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
