@@ -2298,15 +2298,17 @@ export default function Portfolio() {
                     {selectedCert.credential}
                   </p>
                 </div>
-                <div className="space-y-1">
-                   <p className="text-[10px] uppercase font-bold tracking-[0.2em] opacity-50" style={{ color: currentColors.text.secondary }}>
-                    Level
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <Star size={16} className="text-yellow-500 fill-yellow-500" />
-                    <span className="text-lg font-bold" style={{ color: currentColors.text.primary }}>{selectedCert.level[language]}</span>
+                {selectedCert.level && (
+                  <div className="space-y-1">
+                     <p className="text-[10px] uppercase font-bold tracking-[0.2em] opacity-50" style={{ color: currentColors.text.secondary }}>
+                      Level
+                    </p>
+                    <div className="flex items-center gap-2">
+                      <Star size={16} className="text-yellow-500 fill-yellow-500" />
+                      <span className="text-lg font-bold" style={{ color: currentColors.text.primary }}>{selectedCert.level[language]}</span>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
               
               <button
