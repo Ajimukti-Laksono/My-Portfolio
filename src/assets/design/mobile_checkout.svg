@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" width="100%" height="100%">
+  <defs>
+    <linearGradient id="checkBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b" />
+      <stop offset="60%" stop-color="#27272a" />
+      <stop offset="100%" stop-color="#09090b" />
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ea580c" />
+      <stop offset="100%" stop-color="#c2410c" />
+    </linearGradient>
+  </defs>
+
+  <rect width="360" height="640" rx="36" fill="url(#checkBg)" />
+  <text x="28" y="24" fill="#ffffff" font-size="12" font-family="-apple-system, sans-serif" font-weight="600">9:41</text>
+  <rect x="135" y="12" width="90" height="22" rx="11" fill="#000000" />
+
+  <text x="24" y="65" fill="#fb923c" font-size="11" font-family="sans-serif" font-weight="600" letter-spacing="1">CHECKOUT ALUR</text>
+  <text x="24" y="90" fill="#ffffff" font-size="20" font-family="sans-serif" font-weight="800">Pengiriman & Bayar</text>
+
+  <!-- Step Bar (3 Steps) -->
+  <g transform="translate(24, 110)">
+    <circle cx="16" cy="12" r="10" fill="#ea580c" />
+    <text x="13" y="16" fill="#ffffff" font-size="10" font-family="sans-serif" font-weight="800">✓</text>
+    <line x1="32" y1="12" x2="135" y2="12" stroke="#ea580c" stroke-width="2" />
+
+    <circle cx="150" cy="12" r="10" fill="#ea580c" />
+    <text x="147" y="16" fill="#ffffff" font-size="10" font-family="sans-serif" font-weight="800">2</text>
+    <line x1="166" y1="12" x2="270" y2="12" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+
+    <circle cx="285" cy="12" r="10" fill="rgba(255,255,255,0.1)" />
+    <text x="282" y="16" fill="#a1a1aa" font-size="10" font-family="sans-serif" font-weight="800">3</text>
+  </g>
+
+  <!-- Delivery Address Card -->
+  <g transform="translate(24, 145)">
+    <rect width="312" height="90" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" />
+    <text x="16" y="26" fill="#fb923c" font-size="11" font-family="sans-serif" font-weight="700">ALAMAT UTAMA</text>
+    <text x="16" y="48" fill="#ffffff" font-size="14" font-family="sans-serif" font-weight="800">Aji Mukti Laksono</text>
+    <text x="16" y="68" fill="#a1a1aa" font-size="11" font-family="sans-serif">Bekasi Utara, Kota Bekasi, Jawa Barat 17124</text>
+  </g>
+
+  <!-- Courier Selection -->
+  <g transform="translate(24, 250)">
+    <rect width="312" height="70" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(251,146,60,0.4)" />
+    <text x="16" y="28" fill="#ffffff" font-size="13" font-family="sans-serif" font-weight="700">JNE Express - Kilat Reguler</text>
+    <text x="16" y="48" fill="#a1a1aa" font-size="11" font-family="sans-serif">Estimasi 1-2 Hari Kerja</text>
+    <text x="220" y="38" fill="#fb923c" font-size="14" font-family="sans-serif" font-weight="800">Rp 18.000</text>
+  </g>
+
+  <!-- Order Summary -->
+  <g transform="translate(24, 335)">
+    <rect width="312" height="150" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" />
+    <text x="16" y="28" fill="#ffffff" font-size="13" font-family="sans-serif" font-weight="700">Rincian Pembayaran</text>
+    <text x="16" y="56" fill="#a1a1aa" font-size="11" font-family="sans-serif">Subtotal Produk (2)</text>
+    <text x="240" y="56" fill="#ffffff" font-size="11" font-family="sans-serif">Rp 580.000</text>
+
+    <text x="16" y="80" fill="#a1a1aa" font-size="11" font-family="sans-serif">Biaya Pengiriman</text>
+    <text x="240" y="80" fill="#ffffff" font-size="11" font-family="sans-serif">Rp 18.000</text>
+
+    <text x="16" y="104" fill="#a1a1aa" font-size="11" font-family="sans-serif">Diskon Promo</text>
+    <text x="230" y="104" fill="#22c55e" font-size="11" font-family="sans-serif">- Rp 50.000</text>
+
+    <line x1="16" y1="116" x2="296" y2="116" stroke="rgba(255,255,255,0.1)" />
+    <text x="16" y="136" fill="#ffffff" font-size="13" font-family="sans-serif" font-weight="800">Total Bayar</text>
+    <text x="210" y="136" fill="#fb923c" font-size="14" font-family="sans-serif" font-weight="900">Rp 548.000</text>
+  </g>
+
+  <!-- Pay Button -->
+  <g transform="translate(24, 510)">
+    <rect width="312" height="52" rx="14" fill="url(#orangeGrad)" />
+    <text x="80" y="32" fill="#ffffff" font-size="14" font-family="sans-serif" font-weight="800">Lanjut Pembayaran 1-Tap</text>
+  </g>
+
+  <rect x="120" y="624" width="120" height="4" rx="2" fill="rgba(255,255,255,0.3)" />
+</svg>

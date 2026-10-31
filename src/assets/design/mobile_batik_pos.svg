@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" width="100%" height="100%">
+  <defs>
+    <linearGradient id="posBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="60%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#021f18" />
+    </linearGradient>
+    <linearGradient id="qrisGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+  </defs>
+
+  <rect width="360" height="640" rx="36" fill="url(#posBg)" />
+  <text x="28" y="24" fill="#ffffff" font-size="12" font-family="-apple-system, sans-serif" font-weight="600">9:41</text>
+  <rect x="135" y="12" width="90" height="22" rx="11" fill="#000000" />
+  
+  <!-- Header -->
+  <text x="24" y="65" fill="#34d399" font-size="11" font-family="sans-serif" font-weight="600" letter-spacing="1">BATIK KASIR POS</text>
+  <text x="24" y="90" fill="#ffffff" font-size="20" font-family="sans-serif" font-weight="800">Kasir Cepat Mobile</text>
+  <rect x="276" y="68" width="60" height="24" rx="12" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1" />
+  <text x="290" y="84" fill="#34d399" font-size="10" font-family="sans-serif" font-weight="700">ONLINE</text>
+
+  <!-- Total Bill Banner Card -->
+  <g transform="translate(24, 110)">
+    <rect width="312" height="120" rx="20" fill="rgba(255,255,255,0.06)" stroke="rgba(52,211,153,0.3)" />
+    <text x="20" y="32" fill="#94a3b8" font-size="11" font-family="sans-serif">Total Transaksi Saat Ini (3 Item)</text>
+    <text x="20" y="70" fill="#ffffff" font-size="30" font-family="sans-serif" font-weight="900">Rp 745.000</text>
+    <text x="20" y="95" fill="#34d399" font-size="11" font-family="sans-serif">ID Pesanan: #ORD-2026-9041</text>
+    
+    <!-- Barcode quick icon -->
+    <rect x="236" y="30" width="56" height="56" rx="12" fill="#10b981" />
+    <path d="M 248 42 V 74 M 254 42 V 74 M 262 42 V 74 M 268 42 V 74 M 276 42 V 74 M 282 42 V 74" stroke="#ffffff" stroke-width="2" />
+  </g>
+
+  <!-- Items list -->
+  <text x="24" y="260" fill="#ffffff" font-size="13" font-family="sans-serif" font-weight="700">Daftar Barang Terpindai</text>
+
+  <g transform="translate(24, 275)">
+    <!-- Item 1 -->
+    <rect x="0" y="0" width="312" height="60" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" />
+    <text x="16" y="26" fill="#ffffff" font-size="13" font-family="sans-serif" font-weight="600">Kain Batik Silk Jogja</text>
+    <text x="16" y="44" fill="#94a3b8" font-size="11" font-family="sans-serif">Qty: 2 × Rp 225.000</text>
+    <text x="220" y="35" fill="#34d399" font-size="13" font-family="sans-serif" font-weight="800">Rp 450.000</text>
+
+    <!-- Item 2 -->
+    <rect x="0" y="70" width="312" height="60" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" />
+    <text x="16" y="96" fill="#ffffff" font-size="13" font-family="sans-serif" font-weight="600">Selendang Batik Pekalongan</text>
+    <text x="16" y="114" fill="#94a3b8" font-size="11" font-family="sans-serif">Qty: 1 × Rp 295.000</text>
+    <text x="220" y="105" fill="#34d399" font-size="13" font-family="sans-serif" font-weight="800">Rp 295.000</text>
+  </g>
+
+  <!-- QRIS Instant Payment Box -->
+  <g transform="translate(24, 430)">
+    <rect width="312" height="135" rx="18" fill="rgba(0,0,0,0.3)" stroke="rgba(52,211,153,0.25)" />
+    <!-- QR placeholder -->
+    <rect x="18" y="18" width="98" height="98" rx="12" fill="#ffffff" />
+    <rect x="28" y="28" width="28" height="28" fill="#000000" />
+    <rect x="34" y="34" width="16" height="16" fill="#ffffff" />
+    <rect x="76" y="28" width="28" height="28" fill="#000000" />
+    <rect x="82" y="34" width="16" height="16" fill="#ffffff" />
+    <rect x="28" y="76" width="28" height="28" fill="#000000" />
+    <rect x="34" y="82" width="16" height="16" fill="#ffffff" />
+    <rect x="68" y="68" width="36" height="36" fill="#065f46" />
+
+    <text x="130" y="44" fill="#ffffff" font-size="14" font-family="sans-serif" font-weight="800">Bayar via QRIS</text>
+    <text x="130" y="64" fill="#94a3b8" font-size="10" font-family="sans-serif">Scan dengan BCA, GoPay, OVO, Dana</text>
+    
+    <rect x="130" y="82" width="164" height="32" rx="8" fill="url(#qrisGrad)" />
+    <text x="156" y="102" fill="#ffffff" font-size="11" font-family="sans-serif" font-weight="700">Cetak Struk Digital</text>
+  </g>
+
+  <!-- Home bar -->
+  <rect x="120" y="624" width="120" height="4" rx="2" fill="rgba(255,255,255,0.3)" />
+</svg>

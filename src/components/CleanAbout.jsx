@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Mail, Calendar, Code, Database, Palette, Server, Briefcase } from 'lucide-react';
+import { MapPin, Mail, Calendar, Code, Database, Palette, Server, Briefcase, Sparkles, Zap, Layers } from 'lucide-react';
 import profilePhoto from '../assets/foto_profile.jpeg';
 import { projectsData } from '../data/projects';
 import { experienceData } from '../data/experience';
@@ -45,7 +45,7 @@ export default function CleanAbout({ t, isDarkMode, currentColors, professionalD
           <div className="flex items-center gap-3">
             <Briefcase size={18} style={{ color: currentColors.text.accent }} />
             <span className="text-sm font-medium" style={{ color: currentColors.text.primary }}>
-              Available for work
+              {t('hero.badge')}
             </span>
           </div>
         </div>
@@ -74,9 +74,9 @@ export default function CleanAbout({ t, isDarkMode, currentColors, professionalD
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
             { icon: <Code size={20} />, label: t('about.stats.clean') },
-            { icon: <Server size={20} />, label: t('about.stats.scalable') },
-            { icon: <Palette size={20} />, label: t('about.stats.uiux') },
-            { icon: <Database size={20} />, label: t('about.stats.performance') },
+            { icon: <Sparkles size={20} />, label: t('about.stats.scalable') },
+            { icon: <Layers size={20} />, label: t('about.stats.uiux') },
+            { icon: <Zap size={20} />, label: t('about.stats.performance') },
           ].map((item, idx) => (
             <div 
               key={idx} 

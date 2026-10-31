@@ -39,17 +39,16 @@ import {
   Shield,
   ZoomIn,
   Maximize2,
+  Camera,
 } from "lucide-react";
 import profilePhoto from "./assets/foto_profile.jpeg";
 import profilePhotoNobg from "./assets/foto_profile_nobg.png";
 
-import batikKasirImg1 from "./assets/batik_kasir_1.png";
-import batikKasirImg2 from "./assets/batik_kasir_2.png";
-import batikNusantaraImg1 from "./assets/batik_nusantara_1.png";
-import batikNusantaraImg2 from "./assets/batik_nusantara_2.png";
-
 import CleanAbout from "./components/CleanAbout";
 import Skills from "./components/Skills";
+import CurvedProjectsSlider from "./components/CurvedProjectsSlider";
+import ConfettiSubmitButton from "./components/ConfettiSubmitButton";
+import ExperienceCardDeck from "./components/ExperienceCardDeck";
 import certBSN from "./assets/certificates/sertifikat BSN.jpg";
 import certCisco from "./assets/certificates/Cisco CyberSecurity.jpg";
 import certIBMData from "./assets/certificates/IBM Data Analysis With Python Sertifikat _ Cognitive Class.jpg";
@@ -63,7 +62,12 @@ import certAksademy from "./assets/certificates/AKSADEMY.jpg";
 // Data Imports
 import { professionalData } from "./data/profile";
 import { experienceData } from "./data/experience";
-import { projectsData } from "./data/projects";
+import {
+  projectsData,
+  designProjectsData,
+  desktopDesignProjects,
+  mobileDesignProjects,
+} from "./data/projects";
 import { certificationsData } from "./data/certifications";
 import { translations } from "./data/translations";
 
@@ -150,6 +154,7 @@ export default function Portfolio() {
   const [showAllCertifications, setShowAllCertifications] = useState(false);
   const [language, setLanguage] = useState("id");
   const [isCVLoading, setIsCVLoading] = useState(false);
+  const [selectedDocPhoto, setSelectedDocPhoto] = useState(null);
 
 
 
@@ -651,7 +656,7 @@ export default function Portfolio() {
                   className="w-2.5 h-2.5 rounded-full animate-ping"
                   style={{ backgroundColor: currentColors.text.accent }}
                 />
-                <span>Junior Frontend Engineer & Konsultan Teknis</span>
+                <span>{t('hero.roleBadge')}</span>
               </div>
 
               <p
@@ -960,261 +965,143 @@ export default function Portfolio() {
             </h2>
           </div>
 
-          <div className="relative">
-            {/* Timeline Line - HIDDEN ON MOBILE FOR CLARITY */}
-            <div
-              className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-px"
-              style={{
-                backgroundColor: currentColors.border,
-                background: `linear-gradient(to bottom, ${currentColors.border}, transparent)`,
-              }}
-            ></div>
-
-            {/* Mobile Timeline Line */}
-            <div
-              className="md:hidden absolute left-4 top-0 h-full w-px"
-              style={{
-                backgroundColor: currentColors.border,
-              }}
-            ></div>
-
+          <div className="relative max-w-5xl mx-auto">
             {experienceData.map((exp, idx) => (
               <div
                 key={idx}
-                className={`relative mb-8 sm:mb-12 ${idx % 2 === 0 ? "md:pr-8 md:pl-0 md:text-right" : "md:pl-8"}`}
+                className="relative mb-8 sm:mb-12 w-full"
               >
-                {/* Timeline Dot */}
                 <div
-                  className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-6 md:-translate-y-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full z-10"
-                  style={{
-                    background: currentColors.gradient.primary,
-                    border: `3px solid ${currentColors.bg}`,
-                    boxShadow: isDarkMode
-                      ? "0 0 20px rgba(59, 130, 246, 0.5)"
-                      : "0 0 20px rgba(37, 99, 235, 0.3)",
-                  }}
-                ></div>
-
-                <div
-                  className={`ml-12 md:ml-0 ${idx % 2 === 0 ? "md:mr-16" : "md:ml-16"} p-4 sm:p-6 rounded-xl border transition-all duration-300 hover:scale-[1.01]`}
+                  className="p-6 sm:p-8 lg:p-9 rounded-2xl sm:rounded-3xl border transition-all duration-300 hover:shadow-2xl group"
                   style={{
                     backgroundColor: currentColors.card,
                     borderColor: currentColors.border,
                     boxShadow: isDarkMode
-                      ? "0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
-                      : "0 10px 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8)",
+                      ? "0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08)"
+                      : "0 10px 30px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9)",
                   }}
                 >
-                  <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <div className={`${idx % 2 === 0 ? "md:text-right" : ""}`}>
-                      <h3
-                        className="text-lg sm:text-xl font-bold mb-1"
-                        style={{ color: currentColors.text.primary }}
-                      >
-                        {exp.position[language]}
-                      </h3>
-                      <p
-                        className="font-medium mb-2 text-sm sm:text-base"
-                        style={{ color: currentColors.text.accent }}
-                      >
-                        {exp.company}
-                      </p>
-                      <div
-                        className="flex items-center gap-2 text-xs sm:text-sm"
-                        style={{ color: currentColors.text.secondary }}
-                      >
-                        <MapPin size={14} className="flex-shrink-0" />
-                        <span>{exp.location}</span>
+                  {/* Card Header: Official Logo + Title + Organization + Period */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-black/5 dark:border-white/10">
+                    <div className="flex items-center gap-4">
+                      {/* Logo Pemerintah Kota Bekasi */}
+                      {exp.logo && (
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl p-1.5 flex items-center justify-center flex-shrink-0 bg-white shadow-md border border-slate-200/80 dark:border-slate-700/80 transition-transform duration-300 group-hover:scale-105">
+                          <img
+                            src={exp.logo}
+                            alt={exp.company}
+                            className="w-full h-full object-contain drop-shadow-sm"
+                          />
+                        </div>
+                      )}
+
+                      <div>
+                        <h3
+                          className="text-xl sm:text-2xl font-extrabold tracking-tight"
+                          style={{ color: currentColors.text.primary }}
+                        >
+                          {exp.position[language]}
+                        </h3>
+                        <p className="font-bold text-sm sm:text-base text-blue-600 dark:text-blue-400 mt-0.5">
+                          {exp.company}
+                        </p>
+                        <div
+                          className="flex items-center gap-1.5 text-xs sm:text-sm mt-1.5 opacity-80"
+                          style={{ color: currentColors.text.secondary }}
+                        >
+                          <MapPin size={14} className="text-rose-500 flex-shrink-0" />
+                          <span>{exp.location}</span>
+                        </div>
                       </div>
                     </div>
-                    <span
-                      className="px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium self-start"
+
+                    {/* Period Pill Badge */}
+                    <div
+                      className="self-start sm:self-auto flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold backdrop-blur-sm border shadow-sm flex-shrink-0"
                       style={{
                         backgroundColor: isDarkMode
-                          ? "rgba(59, 130, 246, 0.1)"
-                          : "rgba(37, 99, 235, 0.1)",
+                          ? "rgba(59, 130, 246, 0.12)"
+                          : "rgba(37, 99, 235, 0.08)",
+                        borderColor: isDarkMode
+                          ? "rgba(59, 130, 246, 0.25)"
+                          : "rgba(37, 99, 235, 0.2)",
                         color: currentColors.text.accent,
                       }}
                     >
-                      {exp.period[language]}
-                    </span>
+                      <Calendar size={14} className="flex-shrink-0" />
+                      <span>{exp.period[language]}</span>
+                    </div>
                   </div>
 
-                  <ul className="space-y-2 sm:space-y-3">
-                    {exp.achievements[language].map((achievement, aIdx) => (
-                      <li
-                        key={aIdx}
-                        className="flex items-start gap-2 sm:gap-3"
-                      >
-                        <ChevronRight
-                          size={16}
-                          className="flex-shrink-0 mt-1"
-                          style={{ color: currentColors.text.accent }}
-                        />
-                        <span
+                  {/* Landscape 2-Column Split: Left Details + Right Landscape Card Deck */}
+                  <div className="grid lg:grid-cols-12 gap-8 items-center">
+                    {/* Left Column: Responsibilities & Tech Stack */}
+                    <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
+                      <div>
+                        <h4
+                          className="text-xs font-bold uppercase tracking-wider mb-3.5 opacity-70"
                           style={{ color: currentColors.text.secondary }}
-                          className="text-sm sm:text-base"
                         >
-                          {achievement}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+                          {language === "en"
+                            ? "Key Responsibilities & Activities"
+                            : "Tanggung Jawab & Kegiatan Utama"}
+                        </h4>
+                        <ul className="space-y-3">
+                          {exp.achievements[language].map((achievement, aIdx) => (
+                            <li key={aIdx} className="flex items-start gap-3 text-sm sm:text-base">
+                              <ChevronRight
+                                size={18}
+                                className="flex-shrink-0 mt-0.5 text-blue-500"
+                              />
+                              <span
+                                style={{ color: currentColors.text.secondary }}
+                                className="leading-relaxed"
+                              >
+                                {achievement}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-      {/* Projects Section - RESPONSIVE GRID */}
-      <section
-        id="projects"
-        className={`relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${visibleSections.has("projects") ? "scroll-reveal visible" : "scroll-reveal"}`}
-      >
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <div
-              className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm mb-4"
-              style={{
-                backgroundColor: isDarkMode
-                  ? "rgba(59, 130, 246, 0.1)"
-                  : "rgba(37, 99, 235, 0.1)",
-                color: currentColors.text.accent,
-              }}
-            >
-              <Layers size={16} />
-              <span>{t('projects.badge')}</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              {t('projects.title')}
-            </h2>
-            <p
-              className="text-base sm:text-lg max-w-2xl mx-auto px-4"
-              style={{ color: currentColors.text.secondary }}
-            >
-              {t('projects.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {projectsData.map((project, idx) => (
-              <div
-                key={idx}
-                className={`group rounded-xl overflow-hidden border transition-all duration-500 hover:scale-[1.02] card-hover hover-lift scroll-reveal visible stagger-${(idx % 6) + 1}`}
-                style={{
-                  backgroundColor: isDarkMode ? "rgba(15, 23, 42, 0.9)" : "rgba(255, 255, 255, 1)",
-                  borderColor: isDarkMode ? "rgba(99, 102, 241, 0.2)" : "rgba(99, 102, 241, 0.1)",
-                  boxShadow: isDarkMode
-                    ? "0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)"
-                    : "0 20px 40px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8)",
-                }}
-              >
-                {/* Project Image */}
-                <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-100 dark:bg-slate-800/50">
-                  {project.image ? (
-                    <img
-                      src={Array.isArray(project.image) ? project.image[0] : project.image}
-                      alt={project.title[language]}
-                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gray-200 dark:bg-gray-800 text-gray-400">
-                      <Layers size={48} opacity={0.5} />
-                    </div>
-                  )}
-
-                  {/* Featured Badge */}
-                  {project.featured && (
-                    <div
-                      className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-md backdrop-blur-md"
-                      style={{
-                        backgroundColor: "rgba(245, 158, 11, 0.9)", // amber-500
-                        color: "white",
-                        border: "1px solid rgba(255,255,255,0.2)"
-                      }}
-                    >
-                      {language === 'en' ? 'Featured' : 'Unggulan'}
-                    </div>
-                  )}
-                </div>
-
-                {/* Project Content */}
-                <div className="p-5 sm:p-6 flex flex-col justify-between flex-grow">
-                  <div>
-                    <div className="mb-2">
-                      <span
-                        className="text-xs font-semibold uppercase tracking-wider"
-                        style={{ color: currentColors.text.accent }}
-                      >
-                        {project.client[language]}
-                      </span>
+                      {/* Tech Stack Pills */}
+                      {exp.technologies && exp.technologies.length > 0 && (
+                        <div>
+                          <div className="flex flex-wrap gap-2">
+                            {exp.technologies.map((tech, tIdx) => (
+                              <span
+                                key={tIdx}
+                                className="px-3 py-1 text-xs font-semibold rounded-lg border shadow-xs"
+                                style={{
+                                  backgroundColor: isDarkMode
+                                    ? "rgba(30, 41, 59, 0.6)"
+                                    : "rgba(241, 245, 249, 0.8)",
+                                  borderColor: isDarkMode
+                                    ? "rgba(255, 255, 255, 0.08)"
+                                    : "rgba(0, 0, 0, 0.08)",
+                                  color: currentColors.text.secondary,
+                                }}
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
 
-                    <h3
-                      className="text-lg sm:text-xl font-bold mb-4 group-hover:text-blue-500 transition-colors line-clamp-2"
-                      style={{ color: currentColors.text.primary }}
-                    >
-                      {project.title[language]}
-                    </h3>
-
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tech.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="px-2.5 py-1 text-[10px] sm:text-xs font-medium rounded-md border transition-colors hover:bg-black/5 dark:hover:bg-white/5"
-                          style={{
-                            borderColor: isDarkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)",
-                            color: currentColors.text.secondary,
-                          }}
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                    {/* Right Column: Landscape Fanned Card Deck */}
+                    <div className="lg:col-span-6 flex items-center justify-center">
+                      {exp.documentation && exp.documentation.length > 0 && (
+                        <ExperienceCardDeck
+                          photos={exp.documentation}
+                          language={language}
+                          isDarkMode={isDarkMode}
+                          currentColors={currentColors}
+                          onSelectPhoto={(photo) => setSelectedDocPhoto(photo)}
+                        />
+                      )}
                     </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex items-center gap-3 flex-wrap">
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 hover:opacity-90"
-                        style={{
-                          background: currentColors.gradient.primary,
-                          color: "white",
-                        }}
-                      >
-                        <ExternalLink size={14} />
-                        {t('projects.liveDemo')}
-                      </a>
-                    )}
-                    {!project.comingSoon && (
-                      <button
-                        onClick={() => {
-                          setSelectedProject(project);
-                          setActiveProjectImageIndex(0);
-                          setShowProjectModal(true);
-                        }}
-                        className="inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 hover:gap-3"
-                        style={{ color: currentColors.text.accent }}
-                      >
-                        {t('projects.viewDetails')}
-                        <ArrowUpRight size={16} />
-                      </button>
-                    )}
-                    {project.comingSoon && (
-                      <span
-                        className="text-sm italic"
-                        style={{ color: currentColors.text.secondary }}
-                      >
-                        🚧 {language === 'en' ? 'Coming soon...' : 'Segera hadir...'}
-                      </span>
-                    )}
                   </div>
                 </div>
               </div>
@@ -1222,6 +1109,24 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
+      {/* Projects Section - CURVED 3D SLIDER (Pinterest Design) */}
+      <CurvedProjectsSlider
+        projects={projectsData}
+        designProjects={designProjectsData}
+        desktopDesignProjects={desktopDesignProjects}
+        mobileDesignProjects={mobileDesignProjects}
+        language={language}
+        isDarkMode={isDarkMode}
+        currentColors={currentColors}
+        t={t}
+        visibleSections={visibleSections}
+        onSelectProject={(project) => {
+          setSelectedProject(project);
+          setActiveProjectImageIndex(0);
+          setShowProjectModal(true);
+        }}
+      />
 
       {/* Contact Section - RESPONSIVE */}
       <section
@@ -1598,31 +1503,12 @@ export default function Portfolio() {
                   </div>
                 )}
 
-                <button
-                  type="submit"
-                  onClick={createRipple}
+                <ConfettiSubmitButton
+                  status={formStatus}
+                  language={language}
                   disabled={formStatus === "sending"}
-                  className="relative overflow-hidden w-full px-4 sm:px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 text-sm sm:text-base button-pulse flex items-center justify-center gap-2 disabled:opacity-60"
-                  style={{
-                    background: currentColors.gradient.primary,
-                    color: "white",
-                  }}
-                >
-                  {ripples.map(ripple => (
-                    <span key={ripple.id} className="ripple" style={{ left: ripple.x, top: ripple.y, width: ripple.size, height: ripple.size }} />
-                  ))}
-                  {formStatus === "sending" ? (
-                    <>
-                       <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      {t('contact.form.buttons.sending')}
-                    </>
-                  ) : (
-                    <>
-                       <Send size={16} />
-                      {t('contact.form.buttons.send')}
-                    </>
-                  )}
-                </button>
+                  currentColors={currentColors}
+                />
               </form>
             </div>
           </div>
@@ -2355,6 +2241,37 @@ export default function Portfolio() {
               alt="Full View Certificate"
               className="w-auto h-auto max-w-[95vw] sm:max-w-[90vw] object-contain rounded-lg shadow-2xl border border-white/20"
             />
+          </div>
+        </div>
+      )}
+
+      {/* Activity Documentation Photo Lightbox Modal */}
+      {selectedDocPhoto && (
+        <div
+          className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-black/95 backdrop-blur-xl transition-all duration-300 fade-in"
+          onClick={() => setSelectedDocPhoto(null)}
+        >
+          <div
+            className="relative max-w-4xl max-h-[90vh] flex flex-col items-center justify-center scale-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedDocPhoto(null)}
+              className="absolute -top-12 right-0 p-2.5 rounded-full bg-white/10 hover:bg-red-600 text-white backdrop-blur-md border border-white/20 transition-all hover:rotate-90 shadow-2xl"
+              title={language === "en" ? "Close" : "Tutup"}
+            >
+              <X size={20} />
+            </button>
+            <img
+              src={selectedDocPhoto.url || selectedDocPhoto}
+              alt={selectedDocPhoto.caption?.[language] || "Dokumentasi Kegiatan"}
+              className="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl border border-white/20"
+            />
+            {selectedDocPhoto.caption && (
+              <div className="mt-3 px-5 py-2.5 rounded-xl bg-slate-900/90 backdrop-blur-md border border-white/10 text-white text-xs sm:text-sm text-center max-w-lg shadow-lg">
+                {selectedDocPhoto.caption[language] || selectedDocPhoto.caption}
+              </div>
+            )}
           </div>
         </div>
       )}

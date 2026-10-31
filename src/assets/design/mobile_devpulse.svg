@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" width="100%" height="100%">
+  <defs>
+    <linearGradient id="devBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030712" />
+      <stop offset="60%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#1f2937" />
+    </linearGradient>
+    <linearGradient id="purpleGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="360" height="640" rx="36" fill="url(#devBg)" />
+  <text x="28" y="24" fill="#ffffff" font-size="12" font-family="-apple-system, sans-serif" font-weight="600">9:41</text>
+  <rect x="135" y="12" width="90" height="22" rx="11" fill="#000000" />
+
+  <text x="24" y="65" fill="#a78bfa" font-size="11" font-family="sans-serif" font-weight="600" letter-spacing="1">DEVPULSE MOBILE</text>
+  <text x="24" y="90" fill="#ffffff" font-size="20" font-family="sans-serif" font-weight="800">GitHub Real-Time</text>
+  
+  <!-- Live SSE Badge -->
+  <g transform="translate(254, 70)">
+    <circle cx="8" cy="8" r="4" fill="#22c55e" />
+    <text x="18" y="12" fill="#22c55e" font-size="11" font-family="sans-serif" font-weight="700">SSE LIVE</text>
+  </g>
+
+  <!-- Metric Matrix (2x2) -->
+  <g transform="translate(24, 115)">
+    <rect x="0" y="0" width="148" height="74" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)" />
+    <text x="14" y="24" fill="#94a3b8" font-size="10" font-family="sans-serif">Total Commits</text>
+    <text x="14" y="54" fill="#38bdf8" font-size="24" font-family="sans-serif" font-weight="900">128</text>
+    
+    <rect x="164" y="0" width="148" height="74" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)" />
+    <text x="178" y="24" fill="#94a3b8" font-size="10" font-family="sans-serif">Pull Requests</text>
+    <text x="178" y="54" fill="#a855f7" font-size="24" font-family="sans-serif" font-weight="900">14</text>
+  </g>
+
+  <!-- Contribution Heatmap Mini Strip -->
+  <g transform="translate(24, 205)">
+    <rect width="312" height="68" rx="14" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" />
+    <text x="14" y="20" fill="#94a3b8" font-size="10" font-family="sans-serif" font-weight="600">Aktivitas 30 Hari Terakhir</text>
+    <!-- Heatmap squares -->
+    <g transform="translate(14, 30)">
+      <rect x="0" y="0" width="16" height="16" rx="3" fill="#0e4429" />
+      <rect x="20" y="0" width="16" height="16" rx="3" fill="#006d32" />
+      <rect x="40" y="0" width="16" height="16" rx="3" fill="#26a641" />
+      <rect x="60" y="0" width="16" height="16" rx="3" fill="#39d353" />
+      <rect x="80" y="0" width="16" height="16" rx="3" fill="#26a641" />
+      <rect x="100" y="0" width="16" height="16" rx="3" fill="#006d32" />
+      <rect x="120" y="0" width="16" height="16" rx="3" fill="#39d353" />
+      <rect x="140" y="0" width="16" height="16" rx="3" fill="#26a641" />
+      <rect x="160" y="0" width="16" height="16" rx="3" fill="#0e4429" />
+      <rect x="180" y="0" width="16" height="16" rx="3" fill="#39d353" />
+      <rect x="200" y="0" width="16" height="16" rx="3" fill="#39d353" />
+      <rect x="220" y="0" width="16" height="16" rx="3" fill="#26a641" />
+      <rect x="240" y="0" width="16" height="16" rx="3" fill="#006d32" />
+      <rect x="260" y="0" width="16" height="16" rx="3" fill="#39d353" />
+    </g>
+  </g>
+
+  <!-- Live Feed Notifications -->
+  <text x="24" y="302" fill="#ffffff" font-size="13" font-family="sans-serif" font-weight="700">Feed Aktivitas Real-Time</text>
+
+  <g transform="translate(24, 318)">
+    <!-- Event 1 -->
+    <rect x="0" y="0" width="312" height="74" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(139,92,246,0.3)" />
+    <circle cx="28" cy="28" r="14" fill="#8b5cf6" />
+    <text x="22" y="33" fill="#ffffff" font-size="12" font-family="sans-serif" font-weight="800">PR</text>
+    <text x="54" y="24" fill="#ffffff" font-size="12" font-family="sans-serif" font-weight="700">Merge PR #42 - SSE Optimizer</text>
+    <text x="54" y="42" fill="#94a3b8" font-size="10" font-family="sans-serif">Personal-Project-Dashboard • 2m lalu</text>
+    <rect x="54" y="48" width="60" height="16" rx="4" fill="#22c55e" fill-opacity="0.2" />
+    <text x="60" y="60" fill="#4ade80" font-size="9" font-family="sans-serif" font-weight="700">CI PASSED</text>
+
+    <!-- Event 2 -->
+    <rect x="0" y="86" width="312" height="74" rx="14" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" />
+    <circle cx="28" cy="114" r="14" fill="#3b82f6" />
+    <text x="23" y="119" fill="#ffffff" font-size="12" font-family="sans-serif" font-weight="800">git</text>
+    <text x="54" y="110" fill="#ffffff" font-size="12" font-family="sans-serif" font-weight="700">Push commit 6f91da2 to main</text>
+    <text x="54" y="128" fill="#94a3b8" font-size="10" font-family="sans-serif">batik-nusantara • 14m lalu</text>
+    <rect x="54" y="134" width="70" height="16" rx="4" fill="#3b82f6" fill-opacity="0.2" />
+    <text x="60" y="146" fill="#60a5fa" font-size="9" font-family="sans-serif" font-weight="700">DEPLOYED</text>
+  </g>
+
+  <!-- Quick Action Button -->
+  <g transform="translate(24, 520)">
+    <rect width="312" height="48" rx="14" fill="url(#purpleGlow)" />
+    <text x="80" y="29" fill="#ffffff" font-size="13" font-family="sans-serif" font-weight="700">Konfigurasi Webhook Baru</text>
+  </g>
+
+  <rect x="120" y="624" width="120" height="4" rx="2" fill="rgba(255,255,255,0.3)" />
+</svg>

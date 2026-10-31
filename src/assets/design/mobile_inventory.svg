@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" width="100%" height="100%">
+  <defs>
+    <linearGradient id="invBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c192c" />
+      <stop offset="60%" stop-color="#0f2942" />
+      <stop offset="100%" stop-color="#071321" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+  </defs>
+
+  <rect width="360" height="640" rx="36" fill="url(#invBg)" />
+  <text x="28" y="24" fill="#ffffff" font-size="12" font-family="-apple-system, sans-serif" font-weight="600">9:41</text>
+  <rect x="135" y="12" width="90" height="22" rx="11" fill="#000000" />
+
+  <text x="24" y="65" fill="#38bdf8" font-size="11" font-family="sans-serif" font-weight="600" letter-spacing="1">GUDANG & STOK</text>
+  <text x="24" y="90" fill="#ffffff" font-size="20" font-family="sans-serif" font-weight="800">Audit Stok Barcode</text>
+
+  <!-- Scanner Viewfinder Box -->
+  <g transform="translate(24, 115)">
+    <rect width="312" height="150" rx="18" fill="rgba(0,0,0,0.4)" stroke="rgba(56,189,248,0.3)" />
+    <!-- Reticle corners -->
+    <path d="M 40 40 H 70 M 40 40 V 70" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" />
+    <path d="M 272 40 H 242 M 272 40 V 70" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" />
+    <path d="M 40 110 H 70 M 40 110 V 80" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" />
+    <path d="M 272 110 H 242 M 272 110 V 80" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" />
+    
+    <!-- Laser line -->
+    <line x1="50" y1="75" x2="262" y2="75" stroke="#ef4444" stroke-width="2" />
+    <text x="100" y="132" fill="#38bdf8" font-size="11" font-family="sans-serif" font-weight="600">Pindai Barcode / SKU Batik</text>
+  </g>
+
+  <!-- Live scanned result card -->
+  <g transform="translate(24, 280)">
+    <rect width="312" height="85" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(56,189,248,0.4)" />
+    <text x="16" y="28" fill="#38bdf8" font-size="10" font-family="sans-serif" font-weight="700">TERDETEKSI: SKU-BTK-9021</text>
+    <text x="16" y="50" fill="#ffffff" font-size="14" font-family="sans-serif" font-weight="800">Kemeja Batik Pekalongan M</text>
+    <text x="16" y="70" fill="#94a3b8" font-size="11" font-family="sans-serif">Stok Fisik: 42 Pcs • Rak B-04</text>
+    <rect x="226" y="24" width="70" height="38" rx="8" fill="#0284c7" />
+    <text x="240" y="48" fill="#ffffff" font-size="12" font-family="sans-serif" font-weight="800">+1 Pcs</text>
+  </g>
+
+  <!-- Stock Levels Mini List -->
+  <text x="24" y="392" fill="#ffffff" font-size="13" font-family="sans-serif" font-weight="700">Peringatan Stok Menipis</text>
+  <g transform="translate(24, 408)">
+    <rect width="312" height="55" rx="14" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.3)" />
+    <text x="16" y="24" fill="#ffffff" font-size="12" font-family="sans-serif" font-weight="700">Kain Mori Primissima</text>
+    <text x="16" y="42" fill="#fca5a5" font-size="10" font-family="sans-serif">Sisa 3 Gulung • Segera Restock</text>
+    <text x="235" y="34" fill="#ef4444" font-size="12" font-family="sans-serif" font-weight="800">KRITIS</text>
+  </g>
+
+  <!-- Quick sync button -->
+  <g transform="translate(24, 520)">
+    <rect width="312" height="50" rx="14" fill="url(#cyanGrad)" />
+    <text x="95" y="30" fill="#ffffff" font-size="13" font-family="sans-serif" font-weight="800">Sinkronkan ke Cloud POS</text>
+  </g>
+
+  <rect x="120" y="624" width="120" height="4" rx="2" fill="rgba(255,255,255,0.3)" />
+</svg>
